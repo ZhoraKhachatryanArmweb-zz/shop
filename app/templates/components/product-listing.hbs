@@ -10,7 +10,7 @@
 </td>
 {{#if showForm}}
     {{input value=product.name}}
-    <button {{action "editProduct"}}>Save</button>
+    <button {{action "editProduct" product.id}}>Save</button>
 {{/if}}
 
 

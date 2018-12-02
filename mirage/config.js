@@ -8,7 +8,7 @@ export default function() {
   this.patch('/shops/:id');
   this.get('/products');
   this.post('/products');
-  // this.get('/products/:id');
+  this.get('/products/:id');
   this.del('/products/:id');
   this.patch('/products/:id');
 }
