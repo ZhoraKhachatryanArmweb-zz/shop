@@ -1,6 +1,11 @@
-<ul>
-  {{#each model as |shop|}}
-    <li>{{shop.name}}</li>
-  {{/each}}
-</ul>
-{{yield}}
+<li>
+    {{#link-to "shops.products" shop.id}}
+        {{shop.name}}
+    {{/link-to}}
+    <button {{action (mut showForm) true}}>Edit</button>
+    <button {{action "deleteShop"}}>Delete</button>
+    {{#if showForm}}
+        {{input value=shop.name}}
+        <button {{action "editShop"}}>Save</button>
+    {{/if}}
+</li>

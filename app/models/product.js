@@ -2,5 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
     name: DS.attr('string'),
-    products: DS.hasMany('product')
+    qty: DS.attr('number'),
+    price: DS.attr('number'),
+    shop: DS.belongsTo('shop')
 });

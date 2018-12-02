@@ -7,14 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  /**
-   *   /shop/items   list of items
-   *   /shop/items/new    create a new item (form)
-   * 
-   */
-  // http://localhost:4200/not-shops
-  this.route('shops', { path: 'shops'});
-  this.route('shop', { path: 'shop/:name'});
+  this.route('shops', function() {
+    this.route('products', {path: "/:shop_id"});
+  });
 });
 
 export default Router;

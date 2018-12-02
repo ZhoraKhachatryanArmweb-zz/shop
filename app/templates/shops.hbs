@@ -1,16 +1,1 @@
-<h1>Hello Shops</h1>
-
-<ul>
-    {{#each model as |shop|}}
-        <li>{{link-to shop.name 'shop'  shop.id}}</li>
-    {{/each}}
-</ul>
-
-{{!-- <div class="list-group-item">
-    {{input type="text" class="new-band" placeholder="New band" value=newName insert-newline="createBand" }}
-    <button class="btn btn-primary btn-sm new-band-button" {{action "createBand"}}>Add</button>
-</div> --}}
-{{input value=newName}}
-<button {{action "createBand"}}>Add</button>
-
 {{outlet}}

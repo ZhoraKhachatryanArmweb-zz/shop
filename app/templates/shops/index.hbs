@@ -1,0 +1,9 @@
+<ul>
+    {{#each model as |shop|}}
+        {{shop-listing shop=shop}}
+    {{/each}}
+</ul>
+
+
+{{input value=newName}}
+<button {{action "createShop" newName}}>Add</button>
