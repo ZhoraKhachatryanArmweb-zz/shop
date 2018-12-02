@@ -1,1 +1,16 @@
 {{log product}}
+
+<td> {{product.name}}</td>
+<td> {{product.qty}}</td>
+<td> {{product.price}}</td>
+<td> {{product.total}}</td>
+<td>
+    <button {{action (mut showForm) true}}>Edit</button>
+    <button {{action "deleteProduct"}}>Delete</button>
+</td>
+{{#if showForm}}
+    {{input value=product.name}}
+    <button {{action "editProduct"}}>Save</button>
+{{/if}}
+
+

@@ -1,6 +1,23 @@
 {{log model}}
-<ul>
-    {{#each model.products as |product|}}
-        {{product-listing product=product}}
-    {{/each}}
-</ul>
+<table>
+    <thead>
+        <th>name</th>
+        <th>qty</th>
+        <th>price</th>
+        <th>total</th>
+        <th>actions</th>
+    </thead>
+    <tbody>
+        <tr>
+            {{#each model.products as |product|}}
+                {{product-listing product=product shopId=model.id}}
+            {{/each}}
+        </tr>
+    </tbody>
+</table>
+
+
+{{input value=newName type="text" placeholder="name"}}
+{{input value=qty type="number" placeholder="qty"}}
+{{input value=price type="number" placeholder="price"}}
+<button {{action "createProduct"}}>Add product</button>
