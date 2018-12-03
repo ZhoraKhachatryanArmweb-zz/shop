@@ -6,7 +6,8 @@ export default Controller.extend({
             let newProduct = this.get('store').createRecord('product', {
                 name: this.newName,
                 qty: this.qty,
-                price: this.price
+                price: this.price,
+                shop: this.model
             });
             newProduct.save()
             .then(() => {
@@ -14,8 +15,7 @@ export default Controller.extend({
                 this.set('newName', '');
                 this.set('qty', 0);
                 this.set('price', 0);
-                let shop = this.get('store').peekRecord('shop', this.model.id);
-                shop.save()
+                this.set('showForm', false)
             });
         }
     }

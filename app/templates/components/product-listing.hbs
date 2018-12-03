@@ -1,16 +1,23 @@
-{{log product}}
-
-<td> {{product.name}}</td>
-<td> {{product.qty}}</td>
-<td> {{product.price}}</td>
-<td> {{product.total}}</td>
-<td>
-    <button {{action (mut showForm) true}}>Edit</button>
-    <button {{action "deleteProduct"}}>Delete</button>
-</td>
+<div class="row">
+    <div class="col-md-10 border-secondary border border-top-0 content">
+        <div class="row">
+            <div class="col-md-6 text-center border-right border-secondary">{{product.name}}</div>
+            <div class="col-md-2 text-center border-right border-secondary">{{product.qty}}</div>
+            <div class="col-md-4 text-center" style="border-right: none !important">${{product.price}}</div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-success"
+        {{action (mut showForm) true}}>Edit</button>
+        <button class="btn btn-danger"
+        {{action "deleteProduct"}}>Delete</button>
+    </div>
+</div>
 {{#if showForm}}
     {{input value=product.name}}
-    <button {{action "editProduct" product.id}}>Save</button>
+    {{input type="number" value=product.price}}
+    {{input type="number" value=product.qty}}
+    {{log product}}
+    <button class="btn btn-primary" {{action "editProduct" product.id}}>Save</button>
 {{/if}}
-
 

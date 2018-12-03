@@ -1,23 +1,40 @@
-{{log model}}
-<table>
-    <thead>
-        <th>name</th>
-        <th>qty</th>
-        <th>price</th>
-        <th>total</th>
-        <th>actions</th>
-    </thead>
-    <tbody>
-        <tr>
-            {{#each model.products as |product|}}
-                {{product-listing product=product shopId=model.id}}
-            {{/each}}
-        </tr>
-    </tbody>
-</table>
+<h1 class="text-center">Shop/{{model.name}}</h1>
+<div class="justify-content-center product-list">
+    <header>
+        <div class="row">
+            <div class="col-md-10 border border-secondary rounded-top head">
+                <div class="row">
+                    <span class="col-md-6 text-center border-secondary border-right">Name</span>
+                    <span class="col-md-2 text-center border-secondary border-right">Qty</span>
+                    <span class="col-md-4 text-center"
+                    style="border:none !important">Price</span>
+                </div>
+            </div>
+        </div>
+    </header>
+        {{#each model.products as |product|}}
+            {{product-listing product=product shopId=model.id}}
+        {{/each}}
+    <footer>
+        {{log model}}
+        <div class="row">
+            <div class="col-md-10 border border-secondary border-top-0 rounded-bottom head">
+                <div class="row">
+                    <span class="col-md-6 text-center border-secondary border-right"></span>
+                    <span class="col-md-2 text-center border-secondary border-right"></span>
+                    <span class="col-md-4 text-right"
+                    style="border:none !important">Total Price<br> ${{model.totalPrice}}</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
 
+<button class="btn btn-primary"  {{action (mut showForm) true}}>Add product</button>
 
-{{input value=newName type="text" placeholder="name"}}
-{{input value=qty type="number" placeholder="qty"}}
-{{input value=price type="number" placeholder="price"}}
-<button {{action "createProduct"}}>Add product</button>
+{{#if showForm}}
+    {{input value=newName type="text" placeholder="name"}}
+    {{input value=qty type="number" placeholder="qty"}}
+    {{input value=price type="number" placeholder="price"}}
+    <button class="btn btn-primary" {{action "createProduct"}}>Add</button>
+{{/if}}

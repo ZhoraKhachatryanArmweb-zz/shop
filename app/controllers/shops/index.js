@@ -7,6 +7,9 @@ export default Controller.extend({
                 name: name
             });
             newShop.save()
+            .then(() => {
+                this.set('showForm', false)
+            })
         }
     }
 });

@@ -1,0 +1,30 @@
+@import "ember-bootstrap/bootstrap";
+
+body {
+    .product-list {
+        header .head, footer .head{
+            border-style: dotted !important; 
+            background: #f5f5f5;
+        
+            span {
+                border-right-style: dotted !important; 
+                padding: 10px 0;
+            }
+        }
+
+        .content {
+            border-style: dotted !important; 
+            border-width: 1px; 
+            background: #f5f5f5;
+
+            .row div {
+                border-right-style: dotted !important; 
+                padding: 10px 0
+            }
+        }
+    }
+    .list {
+        border-style: dotted;
+        background: #f5f5f5
+    }
+}

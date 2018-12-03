@@ -1,9 +1,17 @@
-<ul>
-    {{#each model as |shop|}}
-        {{shop-listing shop=shop}}
-    {{/each}}
-</ul>
+<h1 class="text-center">Shops</h1>
+    <div class="justify-content-center border border-secondary rounded list">
+    <table class="table">
+        <tbody>
+            {{#each model as |shop|}}
+                {{shop-listing shop=shop}}
+            {{/each}}
+        </tbody>
+    </table>
+</div>
 
+<button  class="btn btn-primary" {{action (mut showForm) true}}>Add Shop</button>
 
-{{input value=newName}}
-<button {{action "createShop" newName}}>Add</button>
+{{#if showForm}}
+    {{input value=newName}}
+    <button class="btn btn-primary" {{action "createShop" newName}}>Add</button>
+{{/if}}

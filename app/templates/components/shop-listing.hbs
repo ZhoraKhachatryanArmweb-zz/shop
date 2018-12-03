@@ -1,11 +1,20 @@
-<li>
-    {{#link-to "shops.products" shop.id}}
-        {{shop.name}}
-    {{/link-to}}
-    <button {{action (mut showForm) true}}>Edit</button>
-    <button {{action "deleteShop"}}>Delete</button>
+<tr>
+   <td width="80%"> 
+        <p>
+            {{#link-to "shops.products" shop.id}}       
+                {{shop.name}}
+            {{/link-to}}
+        </p>
+    </td>
+    <td width="10%">
+        <button class="btn btn-success" {{action (mut showForm) true}}>Edit</button>
+    </td>
+    <td> 
+       <button class="btn btn-danger" {{action "deleteShop"}}>Delete</button>
+    </td>
+
     {{#if showForm}}
         {{input value=shop.name}}
-        <button {{action "editShop"}}>Save</button>
+        <button class="btn btn-primary" {{action "editShop"}}>Save</button>
     {{/if}}
-</li>
+</tr>
